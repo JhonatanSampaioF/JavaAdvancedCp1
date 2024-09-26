@@ -1,5 +1,15 @@
 package com.example.demo.gateways;
 
+import com.example.demo.gateways.requests.ProfessorRequestPostDto;
+import com.example.demo.gateways.responses.ProfessorResponseDto;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/fiap/professor")
 public interface ProfessorControllerIntegrado {
 
     /*
@@ -9,4 +19,7 @@ public interface ProfessorControllerIntegrado {
             copie os dados de entrada para os dados de saida
             rota: /fiap/professor
      */
+
+    ResponseEntity<ProfessorResponseDto> criarUmProfessor (@RequestBody @Valid ProfessorRequestPostDto professor);
+
 }
